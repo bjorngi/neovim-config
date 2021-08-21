@@ -20,9 +20,14 @@ g.auto_save = 0
 
 -- colorscheme related stuff
 cmd "syntax on"
+cmd "set termguicolors"
 
-local base16 = require "base16"
-base16(base16.themes["onedark"], true)
+vim.g.nightfox_style = "nordfox"
+vim.g.nightfox_color_delimiter = "red"
+vim.g.nightfox_italic_comments = 1
+
+-- Load the colorscheme
+require('nightfox').set()
 
 require "highlights"
 
@@ -69,7 +74,5 @@ vim.api.nvim_exec(
 false
 )
 
-require "zenmode"
 require "whichkey"
-require "dashboard"
 require("nvim_comment").setup()

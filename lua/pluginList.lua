@@ -6,9 +6,11 @@ return packer.startup(
     function()
         use "wbthomason/packer.nvim"
 
+
         -- color related stuff
-        use "siduck76/nvim-base16.lua" -- set theme
+        use 'tanvirtin/monokai.nvim'
         use "norcalli/nvim-colorizer.lua" -- sets colors on hex #90FF11
+        use 'EdenEast/nightfox.nvim'
 
         -- lang stuff
         use "nvim-treesitter/nvim-treesitter"
@@ -24,6 +26,7 @@ return packer.startup(
         use "glepnir/galaxyline.nvim"
         use "windwp/nvim-autopairs"
         use "alvan/vim-closetag"
+        -- use "lukas-reineke/indent-blankline.nvim"
 
         -- Comment
         use "terrortylor/nvim-comment"
@@ -41,13 +44,10 @@ return packer.startup(
         use "tpope/vim-fugitive"
 
         -- misc
-        use "glepnir/dashboard-nvim"
         use "tweekmonster/startuptime.vim"
         use "907th/vim-auto-save"
         use "karb94/neoscroll.nvim"
-        use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
-        use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     end,
     {
         display = {
