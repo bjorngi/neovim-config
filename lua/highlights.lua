@@ -63,17 +63,6 @@ fg_bg("DiffAdd", nord_blue, "none")
 fg_bg("DiffChange", one_bg2, "none")
 fg_bg("DiffModified", nord_blue, "none")
 
--- NvimTree
-fg("NvimTreeFolderIcon", blue)
-fg("NvimTreeFolderName", blue)
-fg("NvimTreeIndentMarker", one_bg2)
-fg("NvimTreeVertSplit", darker_black)
-bg("NvimTreeVertSplit", darker_black)
-
-fg("NvimTreeRootFolder", darker_black)
-bg("NvimTreeNormal", darker_black)
-fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
-
 -- telescope
 fg("TelescopeBorder", line)
 fg("TelescopePromptBorder", line)

@@ -29,7 +29,7 @@ vim.g.nightfox_italic_comments = 1
 -- Load the colorscheme
 require('nightfox').set()
 
-require "highlights"
+-- require "highlights"
 
 -- blankline
 
@@ -46,7 +46,6 @@ require "treesitter-nvim"
 require "mappings"
 
 require "telescope-nvim"
-require "nvimTree" -- file tree stuff
 require "file-icons"
 
 -- git signs , lsp symbols etc
@@ -74,5 +73,6 @@ vim.api.nvim_exec(
 false
 )
 
-require "whichkey"
 require("nvim_comment").setup()
+
+-- Lua
