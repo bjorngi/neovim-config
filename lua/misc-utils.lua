@@ -1,52 +1,32 @@
-local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
+--Incremental live completion (note: this is now a default on master)
+vim.o.inccommand = 'nosplit'
 
-local function opt(scope, key, value)
-    scopes[scope][key] = value
-    if scope ~= "o" then
-        scopes["o"][key] = value
-    end
-end
+--Set highlight on search
+vim.o.hlsearch = false
 
-opt("o", "ruler", false)
-opt("o", "showmode", false)
-opt("o", "hidden", true)
-opt("o", "ignorecase", true)
-opt("o", "splitbelow", true)
-opt("o", "splitright", true)
-opt("o", "termguicolors", true)
-opt("w", "cul", true)
+--Make line numbers default
+vim.wo.number = true
+vim.wo.relativenumber = true
+vim.o.numberwidth = 2
 
-opt("o", "mouse", "a")
+--Do not save when switching buffers (note: this is now a default on master)
+vim.o.hidden = true
 
-opt("w", "signcolumn", "yes")
-opt("o", "cmdheight", 1)
+--Enable mouse mode
+vim.o.mouse = 'a'
 
-opt("o", "updatetime", 250) -- update interval for gitsigns
-opt("o", "clipboard", "unnamedplus")
-opt("o", "timeoutlen", 500)
+--Enable break indent
+vim.o.breakindent = true
 
--- Numbers
-opt("w", "number", true)
-opt("w", "relativenumber", true)
-opt("o", "numberwidth", 2)
--- opt("w", "relativenumber", true)
+--Save undo history
+vim.opt.undofile = true
 
--- for indenline
-opt("b", "expandtab", true)
-opt("b", "shiftwidth", 2)
-opt("b", "smartindent", true)
+--Case insensitive searching UNLESS /C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-local M = {}
+--Decrease update time
+vim.o.updatetime = 250
+vim.wo.signcolumn = 'yes'
 
-function M.is_buffer_empty()
-    -- Check whether the current buffer is empty
-    return vim.fn.empty(vim.fn.expand("%:t")) == 1
-end
-
-function M.has_width_gt(cols)
-    -- Check if the windows width is greater than a given number of columns
-    return vim.fn.winwidth(0) / 2 > cols
-end
--- file extension specific tabbing
-vim.cmd([[autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4]])
-return M
+vim.o.termguicolors = true
