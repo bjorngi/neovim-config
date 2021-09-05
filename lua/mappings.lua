@@ -1,39 +1,88 @@
- local function map(mode, lhs, rhs, opts)
-    local options = {noremap = true}
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local v = require('vimp')
 
-local opt = {}
+local telescope = require('telescope.builtin')
+local telescopeTheme = require('telescope.themes')
+local myFunc = require('my-functions')
 
--- dont copy any deleted text , this is disabled by default so uncomment the below mappings if you want them!
---[[ remove this line
+-- open vim config
+v.nnoremap('<leader>ev', ':e ~/.config/nvim/init.lua<cr>')
 
-map("n", "dd", [=[ "_dd ]=], opt)
-map("v", "dd", [=[ "_dd ]=], opt)
-map("v", "x", [=[ "_x ]=], opt)
+-- go to definition
+v.bind('n', 'gD', function ()
+  vim.lsp.buf.declaration()
+end)
 
- this line too ]]
--- OPEN TERMINALS --
-map("n", "<C-l>", [[<Cmd>vnew term://bash <CR>]], opt) -- term over right
-map("n", "<C-x>", [[<Cmd> split term://bash | resize 10 <CR>]], opt) --  term bottom
-map("n", "<C-t>t", [[<Cmd> tabnew | term <CR>]], opt) -- term newtab
+-- show implementations
+v.bind('n', 'gi', function ()
+  telescope.lsp_implementations(telescopeTheme.get_ivy())
+end)
 
--- COPY EVERYTHING --
-map("n", "<C-a>", [[ <Cmd> %y+<CR>]], opt)
+-- show docs
+v.bind('n', 'K', function ()
+  vim.lsp.buf.hover()
+end)
 
--- toggle numbers ---
-map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
+-- show method signatures
+v.bind('n', '<C-k>', function ()
+  vim.lsp.buf.signature_help()
+end)
 
--- toggle truezen.nvim's ataraxis and minimalist mode
-map("n", "<leader>z", [[ <Cmd> TZAtaraxis<CR>]], opt)
-map("n", "<leader>m", [[ <Cmd> TZMinimalist<CR>]], opt)
+--- show code actions
+v.bind('n', '<leader><space>', function ()
+  telescope.lsp_code_actions()
+end)
 
-map("n", "<C-s>", [[ <Cmd> w <CR>]], opt)
--- vim.cmd("inoremap jh <Esc>")
+-- go to references
+v.bind('n', 'gr', function ()
+  telescope.lsp_references(telescopeTheme.get_ivy())
+end)
 
--- Commenter Keybinding
-map("n", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
-map("v", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
+-- show diagnostics
+v.bind('n', '<leader>q', function ()
+  telescope.lsp_document_diagnostics()
+end)
+
+v.bind('n', '<leader>Q', function ()
+  telescope.lsp_workspace_diagnostics()
+end)
+
+-- show type definition
+v.bind('n', '<leader>D', function ()
+  vim.lsp.buf.type_definition()
+end)
+
+-- TABS
+v.nnoremap('<S-t>', ':tabnew<CR>')
+v.nnoremap('<S-x>', ':bdelete<CR>')
+
+v.nnoremap('<TAB>', ':BufferLineCycleNext<CR>')
+v.nnoremap('<S-TAB>', ':BufferLineCyclePrev<CR>')
+
+-- show files in directory
+v.bind('n', '<leader>n', function ()
+  telescope.file_browser({ cwd = vim.fn.expand('%:p:h') })
+end)
+
+-- show files edited
+v.bind('n', '<leader>o', function ()
+  telescope.oldfiles()
+end)
+
+-- show open buffers
+v.bind('n', '<leader>b', function ()
+  telescope.buffers(telescopeTheme.get_ivy())
+end)
+
+-- show help
+v.bind('n', '<leader>k', function ()
+  telescope.help_tags()
+end)
+
+-- search files
+v.bind('n', '<leader>f', function ()
+  telescope.find_files()
+end)
+
+v.bind('n', '<leader>F', function ()
+  telescope.live_grep({ prompt_prefix="🔍 " })
+end)

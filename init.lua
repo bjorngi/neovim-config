@@ -10,7 +10,9 @@ require("neoscroll").setup() -- smooth scroll
 
 -- lsp stuff
 require "nvim-lspconfig"
-require "compe-completion"
+require "sumneko-lspconfig"
+-- require "compe-completion"
+require "nvim-cmp"
 
 local cmd = vim.cmd
 local g = vim.g
@@ -22,16 +24,9 @@ g.auto_save = 0
 cmd "syntax on"
 cmd "set termguicolors"
 
-vim.g.nightfox_style = "nordfox"
-vim.g.nightfox_color_delimiter = "red"
-vim.g.nightfox_italic_comments = 1
-
 -- Load the colorscheme
-require('nightfox').set()
+require('onedark').setup()
 
--- require "highlights"
-
--- blankline
 
 g.indentLine_enabled = 1
 g.indent_blankline_char = "▏"

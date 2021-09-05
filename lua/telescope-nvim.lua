@@ -1,5 +1,3 @@
-local trouble = require("trouble.providers.telescope")
-
 require("telescope").setup {
   defaults = {
     vimgrep_arguments = {
@@ -52,37 +50,3 @@ require("telescope").setup {
     }
   }
 }
-
-require("telescope").load_extension("media_files")
-
-local opt = {noremap = true, silent = true}
-
-vim.g.mapleader = " "
-
--- mappings
-vim.api.nvim_set_keymap("n", "<Leader>f", [[<Cmd>lua require('telescope.builtin').find_files()<CR>]], opt)
-vim.api.nvim_set_keymap(
-"n",
-"<Leader>P",
-[[<Cmd>lua require('telescope').extensions.media_files.media_files()<CR>]],
-opt
-)
-
-local wideDropdown = {layout_config={vertical={width = 0.75}}
-}
-
-vim.api.nvim_set_keymap("n", "<Leader>b", [[<Cmd>lua require('telescope.builtin').buffers()<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<Leader>k", [[<Cmd>lua require('telescope.builtin').help_tags()<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<Leader>o", [[<Cmd>lua require('telescope.builtin').oldfiles()<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<C-Space>", [[<Cmd>lua require('telescope.builtin').lsp_document_diagnostics(require('telescope.themes').get_ivy())<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<Leader>gd", [[<Cmd>lua require('telescope.builtin').lsp_definitions(require('telescope.themes').get_ivy())<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<Leader>M", [[<Cmd> Neoformat<CR>]], opt)
-
-require("my-functions")
--- dashboard stuff
-vim.api.nvim_set_keymap("n", "<Leader>F", [[<Cmd> Telescope live_grep<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<Leader>N", [[<Cmd> DashboardNewFile<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<Leader>bm", [[<Cmd> DashboardJumpMarks<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<Leader>sl", [[<Cmd> SessionLoad<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<Leader>ss", [[<Cmd> SessionSave<CR>]], opt)
-vim.api.nvim_set_keymap("n", "<Leader>n", [[<Cmd>lua require('my-functions')openBrowser()<CR>]], {})

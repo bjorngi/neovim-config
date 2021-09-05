@@ -10,12 +10,25 @@ function()
   -- color related stuff
   use 'tanvirtin/monokai.nvim'
   use "norcalli/nvim-colorizer.lua" -- sets colors on hex #90FF11
-  use 'EdenEast/nightfox.nvim'
+  use 'navarasu/onedark.nvim'
+
+  -- mappings
+  use "svermeulen/vimpeccable"
 
   -- lang stuff
   use "nvim-treesitter/nvim-treesitter"
   use "neovim/nvim-lspconfig"
   use "hrsh7th/nvim-compe"
+  use {
+  "hrsh7th/nvim-cmp",
+  requires = {
+    "hrsh7th/vim-vsnip",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-nvim-lsp",
+  }
+}
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use "onsails/lspkind-nvim"
   use "sbdchd/neoformat"
   use "nvim-lua/plenary.nvim"
@@ -32,8 +45,8 @@ function()
   use "terrortylor/nvim-comment"
 
   -- snippet support
-  use "hrsh7th/vim-vsnip"
-  use "rafamadriz/friendly-snippets"
+  -- use "hrsh7th/vim-vsnip"
+  -- use "rafamadriz/friendly-snippets"
 
   -- file managing , picker etc
   use "kyazdani42/nvim-web-devicons"
@@ -46,17 +59,6 @@ function()
   use "tweekmonster/startuptime.vim"
   use "907th/vim-auto-save"
   use "karb94/neoscroll.nvim"
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end
-  }
 end,
 {
   display = {
