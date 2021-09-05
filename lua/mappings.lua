@@ -2,7 +2,6 @@ local v = require('vimp')
 
 local telescope = require('telescope.builtin')
 local telescopeTheme = require('telescope.themes')
-local myFunc = require('my-functions')
 
 -- open vim config
 v.nnoremap('<leader>ev', ':e ~/.config/nvim/init.lua<cr>')
@@ -29,7 +28,7 @@ end)
 
 --- show code actions
 v.bind('n', '<leader><space>', function ()
-  telescope.lsp_code_actions()
+  telescope.lsp_code_actions(telescopeTheme.get_cursor())
 end)
 
 -- go to references
@@ -85,4 +84,8 @@ end)
 
 v.bind('n', '<leader>F', function ()
   telescope.live_grep({ prompt_prefix="🔍 " })
+end)
+
+v.bind('n', '<leader>?', function ()
+  telescope.keymaps()
 end)
