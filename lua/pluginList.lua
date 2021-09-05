@@ -18,7 +18,6 @@ function()
 	-- lang stuff
 	use "nvim-treesitter/nvim-treesitter"
 	use "neovim/nvim-lspconfig"
-	use "hrsh7th/nvim-compe"
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -51,14 +50,16 @@ function()
 	-- file managing , picker etc
 	use "kyazdani42/nvim-web-devicons"
 	use "nvim-telescope/telescope.nvim"
+	use { 'nvim-telescope/telescope.nvim',
+  	  requires = { {'nvim-lua/plenary.nvim'} }
+	}
 	use "nvim-telescope/telescope-media-files.nvim"
 	use "nvim-lua/popup.nvim"
 	use "tpope/vim-fugitive"
-
-	use {'kristijanhusak/orgmode.nvim', config = function()
-		require('orgmode').setup{}
+	use {'kristijanhusak/orgmode.nvim', branch = 'tree-sitter', config = function()
+	  require('orgmode').setup{}
 	end
-}
+	}
 
 -- misc
 use "tweekmonster/startuptime.vim"

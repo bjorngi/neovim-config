@@ -5,7 +5,6 @@ require "misc-utils"
 require "top-bufferline"
 require "statusline"
 
-
 require("colorizer").setup()
 require("neoscroll").setup() -- smooth scroll
 
@@ -49,6 +48,9 @@ require "gitsigns-nvim"
 require("lspkind-nvim")
 require("nvim-autopairs").setup()
 
+-- orgmode
+require("orgmode-nvim")
+
 -- hide line numbers , statusline in specific buffers!
 vim.api.nvim_exec(
     [[
@@ -67,6 +69,17 @@ vim.api.nvim_exec(
   augroup END
 ]],
 false
+)
+
+-- Highlight on yank
+vim.api.nvim_exec(
+  [[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]],
+  false
 )
 
 require("nvim_comment").setup()
