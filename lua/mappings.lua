@@ -1,13 +1,13 @@
 local v = require('vimp')
-
 local telescope = require('telescope.builtin')
+local trouble = require("trouble.providers.telescope")
 local telescopeTheme = require('telescope.themes')
 
 -- open vim config
 v.nnoremap('<leader>ev', ':e ~/.config/nvim/init.lua<cr>')
 
 -- go to definition
-v.bind('n', 'gD', function ()
+v.bind('n', 'gd', function ()
   vim.lsp.buf.declaration()
 end)
 
@@ -37,16 +37,21 @@ v.bind('n', 'gr', function ()
 end)
 
 -- show diagnostics
+-- v.bind('n', '<leader>q', function ()
+--   trouble.smart_open_with_trouble()
+-- end)
+--
 v.bind('n', '<leader>q', function ()
   telescope.lsp_document_diagnostics()
 end)
+
 
 v.bind('n', '<leader>Q', function ()
   telescope.lsp_workspace_diagnostics()
 end)
 
 -- show type definition
-v.bind('n', '<leader>D', function ()
+v.bind('n', '<leader>gt', function ()
   vim.lsp.buf.type_definition()
 end)
 
@@ -72,6 +77,15 @@ v.bind('n', '<leader>b', function ()
   telescope.buffers(telescopeTheme.get_ivy())
 end)
 
+-- show symbols
+v.bind('n', '<leader>s', function ()
+  telescope.lsp_document_symbols()
+end)
+
+v.bind('n', '<leader>S', function ()
+  telescope.lsp_dynamic_workspace_symbols()
+end)
+
 -- show help
 v.bind('n', '<leader>k', function ()
   telescope.help_tags()
@@ -84,6 +98,14 @@ end)
 
 v.bind('n', '<leader>F', function ()
   telescope.live_grep({ prompt_prefix="🔍 " })
+end)
+
+v.bind('n', '<leader>gP', function ()
+	require('peek').Peek('typeDefinition')
+end)
+
+v.bind('n', '<leader>gp', function ()
+	require('peek').Peek('definition')
 end)
 
 v.bind('n', '<leader>?', function ()

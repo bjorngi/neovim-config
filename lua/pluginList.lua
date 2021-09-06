@@ -55,6 +55,11 @@ function()
 	}
 	use "nvim-telescope/telescope-media-files.nvim"
 	use "nvim-lua/popup.nvim"
+	use {"folke/trouble.nvim",
+  	  requires = "kyazdani42/nvim-web-devicons",
+  	  config = function()
+  	  require("trouble").setup {}
+        end}
 	use "tpope/vim-fugitive"
 	use {'kristijanhusak/orgmode.nvim', branch = 'tree-sitter', config = function()
 	  require('orgmode').setup{}

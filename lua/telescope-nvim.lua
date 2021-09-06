@@ -1,3 +1,5 @@
+local trouble = require("trouble.providers.telescope")
+
 require("telescope").setup {
   defaults = {
     vimgrep_arguments = {
@@ -8,6 +10,9 @@ require("telescope").setup {
       "--line-number",
       "--column",
       "--smart-case"
+    },
+    mappings = {
+	n = { ["<leader-q>"] = trouble.open_with_trouble },
     },
     prompt_prefix = " ",
     selection_caret = " ",

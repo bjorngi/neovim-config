@@ -25,8 +25,8 @@ cmd "syntax on"
 cmd "set termguicolors"
 
 -- Load the colorscheme
+g.onedark_style = 'darker'
 require('onedark').setup()
-
 
 g.indentLine_enabled = 1
 g.indent_blankline_char = "▏"
