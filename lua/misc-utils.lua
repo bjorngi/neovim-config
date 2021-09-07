@@ -2,7 +2,7 @@
 vim.o.inccommand = 'nosplit'
 
 --Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 --Make line numbers default
 vim.wo.number = true
@@ -35,3 +35,8 @@ vim.o.smartcase = true
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect,noinsert'
+
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
