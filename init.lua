@@ -8,11 +8,15 @@ require "statusline"
 require("colorizer").setup()
 require("neoscroll").setup() -- smooth scroll
 
+require("goto-preview-config")
+require("toggleterminal-conf")
+
 -- lsp stuff
 require "nvim-lspconfig"
 require "sumneko-lspconfig"
 -- require "compe-completion"
 require "nvim-cmp"
+require "lsp_signature-config"
 
 local cmd = vim.cmd
 local g = vim.g
@@ -25,7 +29,7 @@ cmd "syntax on"
 cmd "set termguicolors"
 
 -- Load the colorscheme
-g.onedark_style = 'darker'
+-- g.onedark_style = 'darker'
 require('onedark').setup()
 
 g.indentLine_enabled = 1
@@ -83,5 +87,3 @@ vim.api.nvim_exec(
 )
 
 require("nvim_comment").setup()
-
--- Lua

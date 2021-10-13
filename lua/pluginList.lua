@@ -6,6 +6,10 @@ return packer.startup(
 function()
 	use "wbthomason/packer.nvim"
 
+  use 'ggandor/lightspeed.nvim'
+  use 'rmagatti/goto-preview'
+  use "akinsho/toggleterm.nvim"
+
 
 	-- color related stuff
 	use 'tanvirtin/monokai.nvim'
@@ -32,6 +36,9 @@ function()
 	use "sbdchd/neoformat"
 	use "nvim-lua/plenary.nvim"
 	use "kabouzeid/nvim-lspinstall"
+  use {
+    "ray-x/lsp_signature.nvim",
+  }
 
 	use "lewis6991/gitsigns.nvim"
 	use "akinsho/nvim-bufferline.lua"
