@@ -55,9 +55,8 @@ cmp.setup {
    ghost_text = true,
   },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-    { name = 'luasnip' },
-    { name = 'orgmode' },
+    { name = 'nvim_lsp', priority = 1 },
+    { name = 'buffer', priority = 10 },
+    -- { name = 'luasnip' },
   },
 }

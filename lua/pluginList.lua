@@ -5,8 +5,8 @@ local use = packer.use
 return packer.startup(
 function()
 	use "wbthomason/packer.nvim"
-
-  use 'ggandor/lightspeed.nvim'
+  -- lightspeed = s to search
+  -- use 'ggandor/lightspeed.nvim'
   use 'rmagatti/goto-preview'
   use "akinsho/toggleterm.nvim"
   use { 'TimUntersberger/neogit', requires = {

@@ -7,14 +7,13 @@ local function setup_servers()
   for _, lang in pairs(servers) do
     if lang == "typescript" then
       lspconf[lang].setup {
-        root_dir = vim.loop.cwd
+        root_dir = lspconf.util.find_git_ancestor(),
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
       }
 
     elseif lang == "lua" then
       lspconf[lang].setup {
-        root_dir = function()
-          return vim.loop.cwd()
-        end,
+        root_dir = lspconf.util.find_git_ancestor(),
         settings = {
           Lua = {
             diagnostics = {
@@ -34,9 +33,8 @@ local function setup_servers()
       }
     else
       lspconf[lang].setup {
-        root_dir = vim.loop.cwd
+        root_dir = lspconf.util.find_git_ancestor()
       }
-
     end
   end
 end

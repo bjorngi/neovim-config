@@ -14,7 +14,7 @@ require("neogit-config")
 
 -- lsp stuff
 require "nvim-lspconfig"
-require "sumneko-lspconfig"
+-- require "sumneko-lspconfig"
 -- require "compe-completion"
 require "nvim-cmp"
 require "lsp_signature-config"
