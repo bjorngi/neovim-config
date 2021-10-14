@@ -3,11 +3,34 @@ local telescope = require('telescope.builtin')
 local trouble = require("trouble.providers.telescope")
 local telescopeTheme = require('telescope.themes')
 local terminals = require("toggleterminal-conf")
+local diffview = require("diffview")
+local neogit = require("neogit")
 
 
--- open lazygit terminal
-v.bind('n', '<leader>G', function ()
-  terminals.Lazygit:toggle()
+-- open terminal
+v.bind('n', '<leader>th', function ()
+  terminals.Htop:toggle()
+end)
+
+-- git stupp
+v.bind('n', '<leader>Gd', function ()
+  diffview.open()
+end)
+
+v.bind('n', '<leader>Gf', function ()
+  diffview.file_history()
+end)
+
+v.bind('n', '<leader>GD', function ()
+  diffview.close()
+end)
+
+v.bind('n', '<leader>Gg', function ()
+  neogit.open()
+end)
+
+v.bind('n', '<leader>GG', function ()
+  neogit.close()
 end)
 
 -- open vim config
