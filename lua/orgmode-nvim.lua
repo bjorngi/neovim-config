@@ -21,4 +21,14 @@ require'nvim-treesitter.configs'.setup {
 require('orgmode').setup({
   org_agenda_files = {'~/my-orgs/**/*'},
   org_default_notes_file = '~/my-org/refile.org',
+  org_agenda_templates = {
+    s = { description = "Ny dag hos SPK", template = "\n Test"  }
+  },
+  org_hide_leading_stars = true,
+  org_todo_keywords = {'TODO(t)', '|', 'DONE(d)', 'DENIED(D)'}
 })
+
+require("org-bullets").setup {
+  symbols = { "◉", "○", "✸", "✿" }
+}
+

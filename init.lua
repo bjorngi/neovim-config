@@ -12,6 +12,7 @@ require("goto-preview-config")
 require("toggleterminal-conf")
 require("neogit-config")
 
+require("test")
 -- lsp stuff
 require "nvim-lspconfig"
 -- require "sumneko-lspconfig"

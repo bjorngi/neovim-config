@@ -15,7 +15,7 @@ function()
 
     }
   }
-
+  use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}}
 
 	-- color related stuff
 	use 'tanvirtin/monokai.nvim'
@@ -55,16 +55,15 @@ function()
 
 	-- Comment
 	use "terrortylor/nvim-comment"
+  -- Lua
+  use { "folke/which-key.nvim" }
 
-	-- snippet support
-	-- use "hrsh7th/vim-vsnip"
-	-- use "rafamadriz/friendly-snippets"
 
 	-- file managing , picker etc
 	use "kyazdani42/nvim-web-devicons"
 	use "nvim-telescope/telescope.nvim"
 	use { 'nvim-telescope/telescope.nvim',
-  	  requires = { {'nvim-lua/plenary.nvim'} }
+  	  requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-symbols.nvim'}
 	}
 	use "nvim-telescope/telescope-media-files.nvim"
 	use "nvim-lua/popup.nvim"
@@ -74,10 +73,10 @@ function()
   	  require("trouble").setup {}
         end}
 	use "tpope/vim-fugitive"
-	use {'kristijanhusak/orgmode.nvim', branch = 'tree-sitter', config = function()
-	  require('orgmode').setup{}
-	end
-	}
+	use {'kristijanhusak/orgmode.nvim',
+      branch = 'tree-sitter',
+      requires = {"akinsho/org-bullets.nvim"}
+    }
 
 -- misc
 use "tweekmonster/startuptime.vim"
