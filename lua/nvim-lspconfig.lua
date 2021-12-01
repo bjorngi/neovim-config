@@ -1,51 +1,34 @@
-local function setup_servers()
-  require "lspinstall".setup()
+local lsp_installer = require("nvim-lsp-installer")
+local lspconf = require("lspconfig")
 
-  local lspconf = require("lspconfig")
-  local servers = require "lspinstall".installed_servers()
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
 
-  for _, lang in pairs(servers) do
-    if lang == "typescript" then
-      lspconf[lang].setup {
-        root_dir = lspconf.util.find_git_ancestor(),
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-      }
+  if server.name == "tsserver" then
+    opts.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    opts.root_dir = lspconf.util.find_git_ancestor()
+  elseif server.name == "sqls" then
+    opts.on_attach = function(client)
+      client.resolved_capabilities.execute_command = true
+      client.commands = require('sqls').commands -- Neovim 0.6+ only
 
-    elseif lang == "lua" then
-      lspconf[lang].setup {
-        root_dir = lspconf.util.find_git_ancestor(),
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = {"vim"}
-            },
-            workspace = {
-              library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-              }
-            },
-            telemetry = {
-              enable = false
-            }
-          }
-        }
-      }
-    else
-      lspconf[lang].setup {
-        root_dir = lspconf.util.find_git_ancestor()
+      require('sqls').setup{
+        picker = 'telescope'
       }
     end
+  elseif server.name == "ltex" then
+    opts.settings = {
+      ltex = {
+        language = "no"
+      }
+    }
+  else
   end
-end
 
-setup_servers()
+  opts.root_dir = lspconf.util.find_git_ancestor()
+  server:setup(opts)
+end)
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require "lspinstall".post_install_hook = function()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
 
 -- replace the default lsp diagnostic letters with prettier symbols
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})

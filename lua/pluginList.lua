@@ -9,6 +9,7 @@ function()
   -- use 'ggandor/lightspeed.nvim'
   use 'rmagatti/goto-preview'
   use "akinsho/toggleterm.nvim"
+  use 'nanotee/sqls.nvim'
   use { 'TimUntersberger/neogit', requires = {
      'nvim-lua/plenary.nvim',
       'sindrets/diffview.nvim'
@@ -26,7 +27,7 @@ function()
 	use "svermeulen/vimpeccable"
 
 	-- lang stuff
-	use "nvim-treesitter/nvim-treesitter"
+  use "nvim-treesitter/nvim-treesitter"
 	use "neovim/nvim-lspconfig"
 	use {
 		"hrsh7th/nvim-cmp",
@@ -41,7 +42,7 @@ function()
 	use "onsails/lspkind-nvim"
 	use "sbdchd/neoformat"
 	use "nvim-lua/plenary.nvim"
-	use "kabouzeid/nvim-lspinstall"
+	use "williamboman/nvim-lsp-installer"
   use {
     "ray-x/lsp_signature.nvim",
   }
@@ -61,7 +62,6 @@ function()
 
 	-- file managing , picker etc
 	use "kyazdani42/nvim-web-devicons"
-	use "nvim-telescope/telescope.nvim"
 	use { 'nvim-telescope/telescope.nvim',
   	  requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-symbols.nvim'}
 	}
@@ -74,7 +74,6 @@ function()
         end}
 	use "tpope/vim-fugitive"
 	use {'kristijanhusak/orgmode.nvim',
-      branch = 'tree-sitter',
       requires = {"akinsho/org-bullets.nvim"}
     }
 
