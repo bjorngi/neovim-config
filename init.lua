@@ -33,6 +33,7 @@ cmd "set termguicolors"
 -- Load the colorscheme
 -- g.onedark_style = 'darker'
 require('onedark').setup()
+require('onedark').load()
 
 g.indentLine_enabled = 1
 g.indent_blankline_char = "▏"
@@ -55,7 +56,7 @@ require("lspkind-nvim")
 require("nvim-autopairs").setup()
 
 -- orgmode
-require("orgmode-nvim")
+-- require("orgmode-nvim")
 
 -- hide line numbers , statusline in specific buffers!
 vim.api.nvim_exec(

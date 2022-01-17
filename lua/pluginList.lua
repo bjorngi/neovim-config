@@ -57,13 +57,13 @@ function()
 	-- Comment
 	use "terrortylor/nvim-comment"
   -- Lua
-  use { "folke/which-key.nvim" }
+  use {'zeertzjq/which-key.nvim', branch = 'patch-1' }
 
 
 	-- file managing , picker etc
 	use "kyazdani42/nvim-web-devicons"
 	use { 'nvim-telescope/telescope.nvim',
-  	  requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-symbols.nvim'}
+  	  requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-symbols.nvim', 'nvim-telescope/telescope-file-browser.nvim'}
 	}
 	use "nvim-telescope/telescope-media-files.nvim"
 	use "nvim-lua/popup.nvim"

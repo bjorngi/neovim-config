@@ -1,5 +1,6 @@
 local v = require('vimp')
 local telescope = require('telescope.builtin')
+local telescopeExt = require('telescope').extensions
 local trouble = require("trouble.providers.telescope")
 local telescopeTheme = require('telescope.themes')
 local terminals = require("toggleterminal-conf")
@@ -63,7 +64,8 @@ wk.register({
       P = { function () gp.close_all_win() end, "Close"}
     }
   },
-  n = { function() telescope.file_browser({ cwd = vim.fn.expand('%:p:h') }) end, "Show folder"},
+  -- n = { function() telescope.extensions.file_browser({ cwd = vim.fn.expand('%:p:h') }) end, "Show folder"},
+  n = { function() telescopeExt.file_browser.file_browser({ cwd = vim.fn.expand('%:p:h') }) end, "Show folder"},
   O = { function () telescope.oldfiles() end, "Recent files"},
   q = { function () telescope.lsp_document_diagnostics(telescopeTheme.get_ivy({ previewer = false })) end, "Errors in file"},
   Q = { function () telescope.lsp_workspace_diagnostics(telescopeTheme.get_ivy({ previewer = false })) end, "Errors in workspace"},
