@@ -36,8 +36,6 @@ v.nnoremap('<S-TAB>', ':BufferLineCyclePrev<CR>')
 wk.register({
   s = {
     name = "Symbols",
-    s = { function () telescope.lsp_document_symbols() end, "Symbols in file" },
-    S = { function () telescope.lsp_dynamic_workspace_symbols() end, "Symbols in workspace" },
     e = { function () require'telescope.builtin'.symbols{ sources = {'emoji'} } end, "Emojis 👏" },
     g = { function () require'telescope.builtin'.symbols{ sources = {'gitmoji'} } end, "Gitmojis" }
   },
@@ -56,6 +54,8 @@ wk.register({
     i = { function () telescope.lsp_implementations(telescopeTheme.get_ivy()) end, "implementation"},
     r = { function () telescope.lsp_references(telescopeTheme.get_ivy()) end, "References"},
     t = { function () telescope.lsp_type_definitions() end, "Type"},
+    s = { function () telescope.lsp_document_symbols() end, "Symbols in file" },
+    S = { function () telescope.lsp_dynamic_workspace_symbols() end, "Symbols in workspace" },
     p = {
       name = "Peek",
       d = { function() gp.goto_preview_definition() end, "Definition"},
@@ -67,8 +67,8 @@ wk.register({
   -- n = { function() telescope.extensions.file_browser({ cwd = vim.fn.expand('%:p:h') }) end, "Show folder"},
   n = { function() telescopeExt.file_browser.file_browser({ cwd = vim.fn.expand('%:p:h') }) end, "Show folder"},
   O = { function () telescope.oldfiles() end, "Recent files"},
-  q = { function () telescope.lsp_document_diagnostics(telescopeTheme.get_ivy({ previewer = false })) end, "Errors in file"},
-  Q = { function () telescope.lsp_workspace_diagnostics(telescopeTheme.get_ivy({ previewer = false })) end, "Errors in workspace"},
+  q = { function () telescope.diagnostics(telescopeTheme.get_ivy({ previewer = false, bufnr = 0 })) end, "Errors in file"},
+  Q = { function () telescope.diagnostics(telescopeTheme.get_ivy({ previewer = false })) end, "Errors in workspace"},
   G = {
     name = "Git",
     d = { function() diffview.open() end, "Diff" },
