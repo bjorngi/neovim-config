@@ -78,8 +78,13 @@ wk.register({
     G = { function () neogit.close() end, "Close interactive"},
   },
   t = {
-    name = "Terminal",
-    h = { function() terminals.Htop:toggle() end, "Htop"}
+    name = "Testing",
+    T = { "<cmd>Ultest<cr><cmd>UltestSummaryOpen<cr>", "Test file"},
+    t = { "<cmd>UltestNearest<cr>", "Test file"},
+    s = { "<cmd>UltestSummary<cr>", "Summary"},
+    o = { "<cmd>UltestOutput<cr>", "Output"},
+    l = { "<cmd>UltestLast<cr>", "Last"},
+    c = { "<cmd>UltestClear<cr>", "Clear"},
   },
   b = { function() telescope.buffers(telescopeTheme.get_ivy()) end, "Buffers"},
 

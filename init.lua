@@ -13,10 +13,9 @@ require("toggleterminal-conf")
 require("neogit-config")
 
 require("test")
+require("dap")
 -- lsp stuff
 require "nvim-lspconfig"
--- require "sumneko-lspconfig"
--- require "compe-completion"
 require "nvim-cmp"
 require "lsp_signature-config"
 

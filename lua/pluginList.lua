@@ -16,11 +16,31 @@ function()
 
     }
   }
+  -- testing/debugging
   use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}}
+  use {
+  "mfussenegger/nvim-dap",
+  opt = true,
+  event = "BufReadPre",
+  module = { "dap" },
+  wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
+  requires = {
+    "Pocco81/DAPInstall.nvim",
+    "theHamsta/nvim-dap-virtual-text",
+    "rcarriga/nvim-dap-ui",
+    "mfussenegger/nvim-dap-python",
+    "nvim-telescope/telescope-dap.nvim",
+    { "leoluz/nvim-dap-go", module = "dap-go" },
+    { "jbyuki/one-small-step-for-vimkind", module = "osv" },
+  },
+  config = function()
+    --require("config.dap").setup()
+  end,
+}
 
 	-- color related stuff
 	use 'tanvirtin/monokai.nvim'
-	use "norcalli/nvim-colorizer.lua" -- sets colors on hex #90FF11
+	use "norcalli/nvim-colorizer.lua" -- sets colors on hex, f.eks. #90FF11
 	use 'navarasu/onedark.nvim'
 
 	-- mappings
@@ -57,7 +77,7 @@ function()
 	-- Comment
 	use "terrortylor/nvim-comment"
   -- Lua
-  use {'zeertzjq/which-key.nvim', branch = 'patch-1' }
+  use {'folke/which-key.nvim'}
 
 
 	-- file managing , picker etc
