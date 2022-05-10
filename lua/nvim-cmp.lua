@@ -159,8 +159,7 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp', priority = 1000 },
---    { name = 'buffer'  },
---    { name = 'orgmode' },
+    { name = 'buffer' },
     { name = 'luasnip' }
   }
 }

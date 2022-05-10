@@ -1,5 +1,4 @@
 require("toggleterm").setup{}
-local v = require('vimp')
 
 local Terminal  = require('toggleterm.terminal').Terminal
 

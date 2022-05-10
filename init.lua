@@ -19,54 +19,32 @@ require "nvim-lspconfig"
 require "nvim-cmp"
 require "lsp_signature-config"
 
-local cmd = vim.cmd
-local g = vim.g
-
-g.mapleader = " "
-g.auto_save = 0
+vim.g.mapleader = " "
 
 -- colorscheme related stuff
-cmd "syntax on"
-cmd "set termguicolors"
+vim.cmd "syntax on"
+vim.cmd "set termguicolors"
 
 -- Load the colorscheme
--- g.onedark_style = 'darker'
 require('onedark').setup()
 require('onedark').load()
-
-g.indentLine_enabled = 1
-g.indent_blankline_char = "▏"
-
-g.indent_blankline_filetype_exclude = {"help", "terminal"}
-g.indent_blankline_buftype_exclude = {"terminal"}
-
-g.indent_blankline_show_trailing_blankline_indent = false
-g.indent_blankline_show_first_indent_level = false
 
 require "treesitter-nvim"
 require "mappings"
 
 require "telescope-nvim"
 require "file-icons"
+require "ultest-config"
 
 -- git signs , lsp symbols etc
 require "gitsigns-nvim"
 require("lspkind-nvim")
 require("nvim-autopairs").setup()
 
--- orgmode
--- require("orgmode-nvim")
+-- set global statusline
+vim.opt.laststatus = 3
 
--- hide line numbers , statusline in specific buffers!
-vim.api.nvim_exec(
-    [[
-   au BufEnter term://* setlocal nonumber
-   au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
-   au BufEnter term://* set laststatus=0 
-]],
-    false
-)
-
+-- format on save
 vim.api.nvim_exec(
 [[
   augroup fmt
@@ -87,5 +65,3 @@ vim.api.nvim_exec(
 ]],
   false
 )
-
-require("nvim_comment").setup()

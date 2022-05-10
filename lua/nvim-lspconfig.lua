@@ -44,13 +44,13 @@ lsp_installer.on_server_ready(function(server)
     }
   end
   opts.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  opts.root_dir = lspconf.util.find_git_ancestor()
+  opts.root_dir = lspconf.util.find_git_ancestor(vim.api.nvim_buf_get_name(0))
   server:setup(opts)
 end)
 
 
 -- replace the default lsp diagnostic letters with prettier symbols
-vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+vim.fn.sign_define("DiagnosticSignError", {text = "", numhl = "DiagnosticSignError", texthl = "DiagnosticSignError"})
+vim.fn.sign_define("DiagnosticSignWarn", {text = "", numhl = "DiagnosticSignWarn", texthl = "DiagnosticSignWarn"})
+vim.fn.sign_define("DiagnosticSignInfo", {text = "", numhl = "DiagnosticSignInfo", texthl = "DiagnosticSignInfo"})
+vim.fn.sign_define("DiagnosticSignHint", {text = "", numhl = "DiagnosticSignHint", texthl = "DiagnosticSignHint"})
