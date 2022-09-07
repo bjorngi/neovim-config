@@ -11,9 +11,13 @@ require("neoscroll").setup() -- smooth scroll
 require("goto-preview-config")
 require("toggleterminal-conf")
 require("neogit-config")
+require('vgit-config')
 
 require("test")
 require("dap")
+
+-- TODO: Do
+-- require "neotest-config"
 -- lsp stuff
 require "nvim-lspconfig"
 require "nvim-cmp"
@@ -34,7 +38,6 @@ require "mappings"
 
 require "telescope-nvim"
 require "file-icons"
-require "ultest-config"
 
 -- git signs , lsp symbols etc
 require "gitsigns-nvim"

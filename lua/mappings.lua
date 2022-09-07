@@ -88,12 +88,8 @@ wk.register({
   },
   t = {
     name = "Testing",
-    T = { "<cmd>Ultest<cr><cmd>UltestSummaryOpen<cr>", "Test file"},
-    t = { "<cmd>UltestNearest<cr>", "Test file"},
-    s = { "<cmd>UltestSummary<cr>", "Summary"},
-    o = { "<cmd>UltestOutput<cr>", "Output"},
-    l = { "<cmd>UltestLast<cr>", "Last"},
-    c = { "<cmd>UltestClear<cr>", "Clear"},
+    T = { function() require("neotest").run.run() end, "Test file"},
+    t = { function() require("neotest").run.run(vim.fn.expand("%")) end, "Test file"},
   },
   b = { function() telescope.buffers(telescopeTheme.get_ivy()) end, "Buffers"},
 

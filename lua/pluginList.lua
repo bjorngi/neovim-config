@@ -15,7 +15,15 @@ return packer.startup(function()
       }
   }
   -- testing
-  use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}}
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+
+    }
+  }
 
 	-- color related stuff
 	use "norcalli/nvim-colorizer.lua" -- sets colors on hex, f.eks. #90FF11
@@ -44,7 +52,14 @@ return packer.startup(function()
 	use "williamboman/nvim-lsp-installer"
   use "ray-x/lsp_signature.nvim"
 
-	use "lewis6991/gitsigns.nvim"
+  -- Git
+  use "lewis6991/gitsigns.nvim"
+  use {
+    'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 	use "akinsho/nvim-bufferline.lua"
 	use "glepnir/galaxyline.nvim"
 	use "windwp/nvim-autopairs"
