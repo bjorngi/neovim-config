@@ -10,14 +10,14 @@ require("neoscroll").setup() -- smooth scroll
 
 require("goto-preview-config")
 require("toggleterminal-conf")
-require("neogit-config")
-require('vgit-config')
+-- require("neogit-config")
+-- require('vgit-config')
 
 require("test")
 require("dap")
 
 -- TODO: Do
--- require "neotest-config"
+require "neotest-config"
 -- lsp stuff
 require "nvim-lspconfig"
 require "nvim-cmp"

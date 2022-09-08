@@ -6,7 +6,7 @@ return packer.startup(function()
   use 'rmagatti/goto-preview'
   use "akinsho/toggleterm.nvim"
   use 'nanotee/sqls.nvim'
-
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use {
      'TimUntersberger/neogit',
       requires = {
@@ -21,7 +21,7 @@ return packer.startup(function()
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
-
+      "haydenmeade/neotest-jest"
     }
   }
 
@@ -47,19 +47,18 @@ return packer.startup(function()
 	}
 	use "onsails/lspkind-nvim"
 	use "sbdchd/neoformat"
-	use "nvim-lua/plenary.nvim"
 
 	use "williamboman/nvim-lsp-installer"
   use "ray-x/lsp_signature.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
-  use {
-    'tanvirtin/vgit.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    }
-  }
+  -- use {
+  --   'tanvirtin/vgit.nvim',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim'
+  --   }
+  -- }
 	use "akinsho/nvim-bufferline.lua"
 	use "glepnir/galaxyline.nvim"
 	use "windwp/nvim-autopairs"

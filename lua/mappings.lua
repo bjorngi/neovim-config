@@ -75,8 +75,8 @@ wk.register({
   n = { function() telescopeExt.file_browser.file_browser({ cwd = vim.fn.expand('%:p:h') }) end, "Show folder"},
   O = { function () telescope.oldfiles() end, "Recent files"},
   o = { function () telescopeExt.frecency.frecency() end, "List frequent files"},
-  -- q = { function () telescope.diagnostics(telescopeTheme.get_ivy({ previewer = false, bufnr = 0, line_width = 10 })) end, "Errors in file"},
-  q = { function () trouble.toggle() end, "Errors in file"},
+  q = { function () telescope.diagnostics(telescopeTheme.get_ivy({ previewer = false, bufnr = 0, line_width = 10 })) end, "Errors in file"},
+  -- q = { function () trouble.toggle() end, "Errors in file"},
   Q = { function () telescope.diagnostics(telescopeTheme.get_ivy({ previewer = false })) end, "Errors in workspace"},
   G = {
     name = "Git",
@@ -90,7 +90,9 @@ wk.register({
     name = "Testing",
     T = { function() require("neotest").run.run() end, "Test file"},
     t = { function() require("neotest").run.run(vim.fn.expand("%")) end, "Test file"},
+    s = { function() require("neotest").summary.toggle() end, "Summary"},
   },
   b = { function() telescope.buffers(telescopeTheme.get_ivy()) end, "Buffers"},
+  d = { function() vim.lsp.diagnostic.show_line_diagnostics() end, "Show error"}
 
 }, { prefix = "<leader>"})

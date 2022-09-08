@@ -44,7 +44,7 @@ lsp_installer.on_server_ready(function(server)
     }
   end
   opts.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  opts.root_dir = lspconf.util.find_git_ancestor(vim.api.nvim_buf_get_name(0))
+  -- opts.root_dir = function() lspconf.util.find_git_ancestor(vim.api.nvim_buf_get_name(0)) end
   server:setup(opts)
 end)
 
