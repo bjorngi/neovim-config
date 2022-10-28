@@ -11,7 +11,7 @@ require("neoscroll").setup() -- smooth scroll
 require("goto-preview-config")
 require("toggleterminal-conf")
 -- require("neogit-config")
--- require('vgit-config')
+require('vgit-config')
 
 require("test")
 require("dap")

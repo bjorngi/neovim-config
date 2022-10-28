@@ -53,12 +53,12 @@ return packer.startup(function()
 
   -- Git
   use "lewis6991/gitsigns.nvim"
-  -- use {
-  --   'tanvirtin/vgit.nvim',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim'
-  --   }
-  -- }
+  use {
+    'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 	use "akinsho/nvim-bufferline.lua"
 	use "glepnir/galaxyline.nvim"
 	use "windwp/nvim-autopairs"
