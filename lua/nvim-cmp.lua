@@ -77,7 +77,7 @@ cmp.setup {
     end
   },
   experimental = {
-   ghost_text = true,
+   ghost_text = false,
   },
   sources = {
     { name = 'nvim_lsp', priority = 1000 },

@@ -32,21 +32,21 @@ require("telescope").setup {
       prompt_position = "bottom",
     },
     file_sorter = require "telescope.sorters".get_fuzzy_file,
-    -- file_ignore_patterns = { "node_modules" },
+    file_ignore_patterns = { "node_modules" },
     generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
     winblend = 0,
     color_devicons = true,
     use_less = true,
     set_env = {["COLORTERM"] = "truecolor"}, -- default = nil,
     -- Developer configurations: Not meant for general override
-    -- buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker
+    buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker
   },
   extensions = {
     ["ui-select"] = {
       require("telescope.themes").get_cursor(),
     },
     media_files = {
-      filetypes = {"png", "webp", "jpg", "jpeg"},
+      filetypes = {"png", "webp", "jpg", "jpeg", 'svg', 'pdf'},
       find_cmd = "rg" -- find command (defaults to `fd`)
     },
     frecency = {
@@ -62,3 +62,5 @@ require("telescope").load_extension "file_browser"
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("frecency")
 require("telescope").load_extension("frecency")
+require("telescope").load_extension("media_files")
+-- require("telescope").load_extension("yaml_schema")

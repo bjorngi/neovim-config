@@ -10,7 +10,7 @@ require("neoscroll").setup() -- smooth scroll
 
 require("goto-preview-config")
 require("toggleterminal-conf")
--- require("neogit-config")
+require("neogit-config")
 require('vgit-config')
 
 require("test")
@@ -19,7 +19,6 @@ require("dap")
 -- TODO: Do
 require "neotest-config"
 -- lsp stuff
-require "nvim-lspconfig"
 require "nvim-cmp"
 require "lsp_signature-config"
 
@@ -43,6 +42,10 @@ require "file-icons"
 require "gitsigns-nvim"
 require("lspkind-nvim")
 require("nvim-autopairs").setup()
+
+require('mason-config')
+
+-- require("yaml-companion-config")
 
 -- set global statusline
 vim.opt.laststatus = 3

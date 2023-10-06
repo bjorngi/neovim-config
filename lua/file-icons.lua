@@ -39,7 +39,7 @@ require "nvim-web-devicons".setup {
         },
         jpeg = {
             icon = "",
-            color = "colors.dark_purple",
+            color = colors.dark_purple,
             name = "jpeg"
         },
         mp3 = {

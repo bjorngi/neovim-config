@@ -39,6 +39,7 @@ vim.keymap.set('n', '<TAB>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<S-TAB>', ':BufferLineCyclePrev<CR>')
 
 wk.register({
+  m = { function () telescope.treesitter() end, "Find function in fil" },
   s = {
     name = "Symbols",
     e = { function () require'telescope.builtin'.symbols{ sources = {'emoji'} } end, "Emojis 👏" },
@@ -50,14 +51,13 @@ wk.register({
   c = {
     name = "Code actions",
     r = { function () vim.lsp.buf.rename() end, "Rename" },
-    f = { function () vim.lsp.buf.formatting() end, "Format"},
+    f = { function () vim.lsp.buf.format() end, "Format"},
     c = { function () vim.lsp.buf.code_action() end, "Action list"},
     C = { function () vim.lsp.buf.code_action({ filter = filterQuickfix, apply = true }) end, "Fix all"}
   },
   g = {
     name = "GOTO",
     d = { function () telescope.lsp_definitions() end, "Definition" },
-    -- d = { function () telescope.lsp_definitions() end, "Definition" },
     i = { function () telescope.lsp_implementations(telescopeTheme.get_ivy()) end, "implementation"},
     r = { function () telescope.lsp_references(telescopeTheme.get_ivy()) end, "References"},
     t = { function () telescope.lsp_type_definitions() end, "Type"},
@@ -104,8 +104,12 @@ wk.register({
     a = { function() require("neotest").run.run({ suite = true }) end, "Test all"},
     T = { function() require("neotest").run.run() end, "Test file"},
     r = { function() require("neotest").run.run_last() end, "Test last"},
+    M = {
+      name = "Marking",
+      m = { function() require("neotest").summary.mark() end, "Mark" }, 
+      c = { function() require("neotest").summary.clear_marked() end, "Clear marked" }
+    },
     m = { function() require("neotest").summary.run_marked() end, "Test marked"},
-    M = { function() require("neotest").summary.clear_marked() end, "Clear marked"},
     t = { function() require("neotest").run.run(vim.fn.expand("%")) end, "Test file"},
     s = { function() require("neotest").summary.toggle() end, "Summary"},
     o = { function() require("neotest").output.open({ short = true }) end, "Output short"},

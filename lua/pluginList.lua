@@ -6,14 +6,28 @@ return packer.startup(function()
   use 'rmagatti/goto-preview'
   use "akinsho/toggleterm.nvim"
   use 'nanotee/sqls.nvim'
+  
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use {
-     'TimUntersberger/neogit',
+     'NeogitOrg/neogit',
       requires = {
        'nvim-lua/plenary.nvim',
        'sindrets/diffview.nvim'
       }
   }
+
+  --- yaml stuff
+--  use {
+--    "someone-stole-my-name/yaml-companion.nvim",
+--    requires = {
+--      { "neovim/nvim-lspconfig" },
+--      { "nvim-lua/plenary.nvim" },
+--      { "nvim-telescope/telescope.nvim" },
+--    },
+--    config = function()
+--      require("telescope").load_extension("yaml_schema")
+--    end,
+--  }
   -- testing
   use {
     "nvim-neotest/neotest",
@@ -21,7 +35,8 @@ return packer.startup(function()
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
-      "haydenmeade/neotest-jest"
+      "haydenmeade/neotest-jest",
+      "marilari88/neotest-vitest"
     }
   }
 
@@ -35,6 +50,9 @@ return packer.startup(function()
 	-- lang stuff
   use "nvim-treesitter/nvim-treesitter"
 	use "neovim/nvim-lspconfig"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
+
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -48,7 +66,6 @@ return packer.startup(function()
 	use "onsails/lspkind-nvim"
 	use "sbdchd/neoformat"
 
-	use "williamboman/nvim-lsp-installer"
   use "ray-x/lsp_signature.nvim"
 
   -- Git
@@ -71,7 +88,8 @@ return packer.startup(function()
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-symbols.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
-      'nvim-telescope/telescope-ui-select.nvim'
+      'nvim-telescope/telescope-ui-select.nvim',
+      'nvim-telescope/telescope-media-files.nvim'
     }
 	}
 	use {"folke/trouble.nvim",
@@ -90,4 +108,10 @@ return packer.startup(function()
   }
 -- misc
 use "karb94/neoscroll.nvim"
+
+-- markdown
+use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
 end)

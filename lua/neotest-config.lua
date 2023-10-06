@@ -1,6 +1,6 @@
 require("neotest").setup({
   adapters = {
-    require('neotest-jest')({
+    require('neotest-vitest')({
       --jestCommand = "npm test --",
       --jestConfigFile = "custom.jest.config.ts",
       -- env = { CI = true },
