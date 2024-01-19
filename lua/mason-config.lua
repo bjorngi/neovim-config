@@ -8,7 +8,8 @@ require("mason-lspconfig").setup {
 
 
 lspconfig.tsserver.setup {}
-lspconfig.eslint.setup {}
+-- lspconfig.eslint.setup {}
+lspconfig.biome.setup {}
 lspconfig.cssls.setup {}
 lspconfig.cssmodules_ls.setup {}
 

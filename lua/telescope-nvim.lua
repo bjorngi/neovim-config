@@ -55,6 +55,14 @@ require("telescope").setup {
         ["cur"] = lspconf.util.find_git_ancestor(vim.fn.getcwd()),
       },
       show_scores = true,
+    },
+    ast_grep = {
+      command = {
+        "sg",
+        "--json=stream",
+      }, -- must have --json=stream
+      grep_open_files = false, -- search in opened files
+      lang = nil, -- string value, specify language for ast-grep `nil` for default
     }
   }
 }
@@ -63,4 +71,5 @@ require("telescope").load_extension("ui-select")
 require("telescope").load_extension("frecency")
 require("telescope").load_extension("frecency")
 require("telescope").load_extension("media_files")
+require("telescope").load_extension("ast_grep")
 -- require("telescope").load_extension("yaml_schema")

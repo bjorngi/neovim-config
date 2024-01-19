@@ -6,7 +6,7 @@ require "top-bufferline"
 require "statusline"
 
 require("colorizer").setup()
-require("neoscroll").setup() -- smooth scroll
+-- require("neoscroll").setup() -- smooth scroll
 
 require("goto-preview-config")
 require("toggleterminal-conf")

@@ -109,6 +109,9 @@ return packer.startup(function()
 -- misc
 use "karb94/neoscroll.nvim"
 
+-- ast-grep
+use "Marskey/telescope-sg"
+
 -- markdown
 use({
     "iamcco/markdown-preview.nvim",

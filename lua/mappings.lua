@@ -78,6 +78,7 @@ wk.register({
   q = { function () telescope.diagnostics(telescopeTheme.get_ivy({ previewer = false, bufnr = 0, line_width = 10 })) end, "Errors in file"},
   -- q = { function () trouble.toggle() end, "Errors in file"},
   Q = { function () telescope.diagnostics(telescopeTheme.get_ivy({ previewer = false })) end, "Errors in workspace"},
+  a = { function () telescopeExt.ast_grep.ast_grep({}) end, "AST Grep" },
   G = {
     name = "Git",
     s = { function() require('vgit').buffer_hunk_stage() end, "Hunk stage" },
