@@ -119,6 +119,12 @@ wk.register({
     k = { function() require("neotest").jump.prev({ status = 'failed'}) end, "Prev fail"},
   },
   b = { function() telescope.buffers(telescopeTheme.get_ivy()) end, "Buffers"},
-  d = { function() vim.lsp.diagnostic.open_float() end, "Show error"}
+  d = { function() vim.lsp.diagnostic.open_float() end, "Show error"},
+  i = {
+    name = "Conceal",
+    i = { function() vim.cmd("set conceallevel=0") end, "Show all"},
+    o = { function() vim.cmd("set conceallevel=1") end, "Hide some"}
+  }
+
 
 }, { prefix = "<leader>"})
